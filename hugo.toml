@@ -5,6 +5,9 @@ copyright = "Copyright © 2020, Jane Doe."
 languageCode = "en-US"
 enableRobotsTXT = true
 enableGitInfo = false
+relativeURLs = false
+uglyURLs = false
+canonifyURLs = false
 
 [frontmatter]
 date = ["date", "pubdate", "lastmod"]
