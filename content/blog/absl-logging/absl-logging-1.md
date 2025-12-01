@@ -5,7 +5,7 @@ draft = false
 title = 'Abseil Logging with Meson Build - Episode 1'
 +++
 
-![absl-meson](/images/absl-logging/absl-logging.jpg)
+![absl-meson](absl-meson.jpg)
 
 In this post, we are going to talk about how to use `Meson` to incorparate
 `Abseil` Logging library into our C++ projects.
