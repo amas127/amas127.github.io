@@ -1,0 +1,46 @@
+baseURL = "https://amas127.github.io/"
+theme = "hugo-bearblog"
+title = "amas' Blog"
+copyright = "Copyright © 2020, Jane Doe."
+languageCode = "en-US"
+enableRobotsTXT = true
+enableGitInfo = false
+
+[frontmatter]
+date = ["date", "pubdate", "lastmod"]
+lastmod = ["lastmod", ":git", "date", "pubdate"]
+publishDate = ["pubdate", "date"]
+
+[params]
+description = "Hugo + Bear = :heart:"
+favicon = "images/favicon.png"
+images = ["images/share.png"]
+title = "Hugo ʕ•ᴥ•ʔ Bear"
+dateFormat = "02 Jan, 2006"
+
+[markup]
+[markup.highlight]
+lineNos = true
+lineNumbersInTable = false
+codeFences = true
+style = "monokai"
+
+[menu]
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "Profile"
+url = "https://codeberg.org/amas127"
+weight = 2
+
+[[menu.main]]
+name = "Posts"
+url = "/blog/"
+weight = 3
+
+[caches]
+[caches.images]
+dir = ":cacheDir/images"
