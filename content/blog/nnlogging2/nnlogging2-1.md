@@ -5,7 +5,7 @@ draft = false
 title = "From Python Logging Library to `nnlogging2` - Episode 1"
 +++
 
-![python-logo](/nnlogging2/python-logo.png)
+![python-logo](/nnlogging2/python-logo.jpg)
 
 Let's talk about [`nnlogging2`](https://codeberg.org/amas127/nnlogging2) (currently
 *v0.2.0*) — a logging library built on top of Python standard
