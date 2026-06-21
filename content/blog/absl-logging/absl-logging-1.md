@@ -1,35 +1,34 @@
 +++
-pubdate = '2025-11-30'
-lastmod = '2025-12-01'
+pubdate = "2025-11-30"
+lastmod = "2025-12-01"
 draft = false
-title = 'Abseil Logging with Meson Build - Episode 1'
+title = "Abseil Logging with Meson Build - Episode 1"
 +++
 
 ![absl-meson](/absl-logging/absl-meson.jpg)
 
-In this post, we are going to talk about how to use `Meson` to incorparate
-`Abseil` Logging library into our C++ projects.
+In this post, we are going to talk about how to use `Meson` to incorparate `Abseil`
+Logging library into our C++ projects.
 
 ## What is Abseil
 
-"Abseil is an open source collection of C++ libraries drawn from the most
-fundamental pieces of Google’s internal codebase", according to the offical
-Abseil introduction. Shortly speaking, it supports C++ code with enhanced
-features by providing missing pieces from the C++ standard and helpful utilities
-built in the Google world.
+"Abseil is an open source collection of C++ libraries drawn from the most fundamental
+pieces of Google’s internal codebase", according to the offical Abseil introduction.
+Shortly speaking, it supports C++ code with enhanced features by providing missing
+pieces from the C++ standard and helpful utilities built in the Google world.
 
-The Abseil Logging Library is considered as the successor of the public archived
-Google Logging Library (glog).
+The Abseil Logging Library is considered as the successor of the public archived Google
+Logging Library (glog).
 
 ## Why using Meson
 
-Meson Build system is considered to be more readable and user friendly than
-CMake in most cases. I personally attribute this to two reasons:
+Meson Build system is considered to be more readable and user friendly than CMake in
+most cases. I personally attribute this to two reasons:
 
-- Instead of exposing thousands of low-level interfaces, Meson adopt the
-  `dependency` abstraction without losing many helpful utilities.
-- Meson is even more powerful when we handle multi-platform development while
-  managing dependencies, using its own `WrapDB` features.
+- Instead of exposing thousands of low-level interfaces, Meson adopt the `dependency`
+  abstraction without losing many helpful utilities.
+- Meson is even more powerful when we handle multi-platform development while managing
+  dependencies, using its own `WrapDB` features.
 
 ## Create a Meson Template
 
@@ -65,8 +64,8 @@ absl-logging/
 └── meson.build
 ```
 
-According to the official Abseil tutorial, we are now fetching the source code
-of Abseil as a third-party library. This is incredibly simple using Meson:
+According to the official Abseil tutorial, we are now fetching the source code of Abseil
+as a third-party library. This is incredibly simple using Meson:
 
 ```bash
 $ mkdir subprojects
@@ -103,9 +102,9 @@ absl_crc = absl_crc_dep
 absl_numeric = absl_numeric_dep
 ```
 
-What's going on here is that Meson create a wrap file under `subprojects`
-directory which records metadata. It will be then used for fetching the source
-code when compilation is triggered the first time.
+What's going on here is that Meson create a wrap file under `subprojects` directory
+which records metadata. It will be then used for fetching the source code when
+compilation is triggered the first time.
 
 Ok! Time for codes!
 
@@ -342,8 +341,8 @@ Build targets in project: 16
 
 absl-logging undefined
 
-  Subprojects
-    abseil-cpp: YES
+Subprojects
+abseil-cpp: YES
 
 Found ninja-1.13.1 at /usr/bin/ninja
 
@@ -365,14 +364,12 @@ E1130 22:19:21.713912   29152 SingletonAbslLogger.cc:23] Direct static ERROR log
 
 ## Change Logger Level
 
-It turns out that we only need to **include this header file** and **link the
-library** in order to output some logs during the whole program life. And we can
-leave all `Abseil` and `Singleton` magics or issues from the main part. What an
-ease!
+It turns out that we only need to **include this header file** and **link the library**
+in order to output some logs during the whole program life. And we can leave all
+`Abseil` and `Singleton` magics or issues from the main part. What an ease!
 
-We can also raise the "LoggerLevel" to filter out over-detailed debugging/info
-messages. By doing this, we can focus on important stuffs without being
-overwhelmed.
+We can also raise the "LoggerLevel" to filter out over-detailed debugging/info messages.
+By doing this, we can focus on important stuffs without being overwhelmed.
 
 ```bash
 $ git diff
@@ -403,6 +400,6 @@ E1130 22:44:26.755098   34373 SingletonAbslLogger.cc:23] Direct static ERROR log
 
 ## Conclusion
 
-In this post, we create a "Singleton Logger" based on `Abseil` using `Meson`.
-With a built-in logging feature, we are able to filter important log messages
-and find out issues quickly when exceptions are raised or during debugging.
+In this post, we create a "Singleton Logger" based on `Abseil` using `Meson`. With a
+built-in logging feature, we are able to filter important log messages and find out
+issues quickly when exceptions are raised or during debugging.
